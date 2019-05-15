@@ -124,6 +124,10 @@ func (e *EnvironmentLoader) generateFieldName(prefix string, name string) string
 	if e.CamelCase {
 		fieldName = strings.ToUpper(strings.Join(camelcase.Split(name), "_"))
 	}
+	
+	if prefix == "" {
+		return fieldName
+	}
 
 	return strings.ToUpper(prefix) + "_" + fieldName
 }
